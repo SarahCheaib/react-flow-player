@@ -16,7 +16,9 @@ const initFlowPlayerCustom = props => {
 						elem.appendChild(div.childNodes[0]);
 						break;
 					case 'after' :
-						elem.after(div.childNodes[0]);
+                        if (elem && elem.parentElement) {
+                            elem.parentElement.insertBefore(div.childNodes[0], elem.nextSibling);
+                        }
 						break;
 					default :
 						if (elem && elem.parentElement) {
